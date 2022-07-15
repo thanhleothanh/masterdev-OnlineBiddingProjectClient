@@ -13,11 +13,15 @@ import {
 } from './../redux/actions/auctionActions';
 import PagingButtons from '../components/PagingButtons';
 
-const AuctionScreen = () => {
+const AuctionScreen = ({ history }) => {
   const location = useLocation();
   const auctionId = location.pathname
     ? location.pathname.split('/auctions/')[1]
     : undefined;
+
+  React.useEffect(() => {
+    if (auctionId == undefined) history.push('/');
+  }, [auctionId]);
 
   return (
     <div className='flex flex-col w-full h-auto min-h-screen p-5'>

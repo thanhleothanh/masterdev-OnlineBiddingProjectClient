@@ -12,9 +12,9 @@ function App() {
         <NavigationBar />
         <Route path='/' component={WelcomeScreen} exact />
         <Route path='/auctions/:id' component={AuctionScreen} />
-        <Route path='/entry' component={Entry} />
-        <Route path='/404' component={NotFound} />
-        <Redirect to='/404' />
+        <Route path='/login' component={Entry} />
+        {/* <Route path='/404' component={NotFound} /> */}
+        {/* <Redirect to='/404' /> */}
       </main>
     </BrowserRouter>
   );
