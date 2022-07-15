@@ -1,8 +1,9 @@
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route } from 'react-router-dom';
 import NavigationBar from './components/NavigationBar';
 import WelcomeScreen from './screens/WelcomeScreen';
 import AuctionScreen from './screens/AuctionScreen';
-import { Entry } from './screens/Entry';
+import Entry from './screens/Entry';
+import NotFound from './screens/NotFound';
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
         <Route path='/' component={WelcomeScreen} exact />
         <Route path='/auctions/:id' component={AuctionScreen} />
         <Route path='/entry' component={Entry} />
+        <Route path='/404' component={NotFound} />
+        <Redirect to='/404' />
       </main>
     </BrowserRouter>
   );

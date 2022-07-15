@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import AuctionCard from '../components/AuctionCard';
@@ -10,7 +10,7 @@ import Loader from './../components/Loader';
 import {
   auctionGetOpenings,
   auctionGetTopTrending,
-} from '../actions/auctionActions';
+} from './../redux/actions/auctionActions';
 import PagingButtons from '../components/PagingButtons';
 
 const AuctionScreen = () => {

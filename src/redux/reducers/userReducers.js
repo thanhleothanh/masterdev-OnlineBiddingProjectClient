@@ -12,11 +12,20 @@ import {
 export const userLoginReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_LOGIN_REQUEST:
-      return { loading: true };
+      return {
+        ...state,
+        loading: true
+      };
     case USER_LOGIN_SUCCESS:
-      return { loading: false, userInfo: action.payload };
+      return {
+        ...state, loading: false,
+        userInfo: action.payload
+      };
     case USER_LOGIN_FAIL:
-      return { loading: false, error: action.payload };
+      return {
+        ...state, loading: false,
+        error: action.payload
+      };
     case USER_LOGOUT:
       return {};
     default:
@@ -27,11 +36,22 @@ export const userLoginReducer = (state = {}, action) => {
 export const userSignupReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_SIGNUP_REQUEST:
-      return { loading: true };
+      return {
+        ...state,
+        loading: true
+      };
     case USER_SIGNUP_SUCCESS:
-      return { loading: false, userSignup: action.payload };
+      return {
+        ...state,
+        loading: false,
+        userSignup: action.payload
+      };
     case USER_SIGNUP_FAIL:
-      return { loading: false, error: action.payload };
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
+      };
     case USER_SIGNUP_RESET:
       return {};
     default:

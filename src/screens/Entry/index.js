@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Components from '../../components/Components';
 
-export const Entry = (props) => {
+const Entry = (props) => {
   const [signIn, setSignIn] = React.useState(true);
 
   return (
@@ -66,3 +66,5 @@ export const Entry = (props) => {
     </div>
   );
 };
+
+export default Entry;

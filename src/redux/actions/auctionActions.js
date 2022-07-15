@@ -7,7 +7,7 @@ import {
   AUCTION_GET_TOP_TRENDING_SUCCESS,
 } from '../constants/auctionConstants';
 import axios from 'axios';
-import { API_URL } from '../utils/config';
+import { API_URL } from '../../utils/config';
 
 export const auctionGetOpenings =
   (page = 0) =>

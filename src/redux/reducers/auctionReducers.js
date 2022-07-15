@@ -13,6 +13,7 @@ export const auctionGetOpeningsReducer = (state = {}, action) => {
       return { loading: true };
     case AUCTION_GET_OPENINGS_SUCCESS:
       return {
+        ...state,
         loading: false,
         auctions: action.payload.auctions,
         page: action.payload.page,
@@ -21,7 +22,11 @@ export const auctionGetOpeningsReducer = (state = {}, action) => {
         pageTotal: action.payload.pageTotal,
       };
     case AUCTION_GET_OPENINGS_FAIL:
-      return { loading: false, error: action.payload };
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
+      };
     default:
       return state;
   }
@@ -30,11 +35,21 @@ export const auctionGetOpeningsReducer = (state = {}, action) => {
 export const auctionGetTopTrendingReducer = (state = {}, action) => {
   switch (action.type) {
     case AUCTION_GET_TOP_TRENDING_REQUEST:
-      return { loading: true };
+      return {
+        ...state,
+        loading: true
+      };
     case AUCTION_GET_TOP_TRENDING_SUCCESS:
-      return { loading: false, auctions: action.payload };
+      return {
+        ...state,
+        loading: false,
+        auctions: action.payload
+      };
     case AUCTION_GET_TOP_TRENDING_FAIL:
-      return { loading: false, error: action.payload };
+      return {
+        loading: false,
+        error: action.payload
+      };
     default:
       return state;
   }

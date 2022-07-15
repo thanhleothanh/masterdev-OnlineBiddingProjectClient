@@ -9,7 +9,7 @@ import Loader from './../components/Loader';
 import {
   auctionGetOpenings,
   auctionGetTopTrending,
-} from '../actions/auctionActions';
+} from './../redux/actions/auctionActions';
 import PagingButtons from '../components/PagingButtons';
 
 const WelcomeScreen = ({ history }) => {
