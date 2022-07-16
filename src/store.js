@@ -5,6 +5,8 @@ import { userLoginReducer, userSignupReducer } from './redux/reducers/userReduce
 import {
   auctionGetOpeningsReducer,
   auctionGetTopTrendingReducer,
+  auctionGetByIdReducer,
+  bidGetByAuctionIdReducer,
 } from './redux/reducers/auctionReducers';
 
 const reducer = combineReducers({
@@ -15,11 +17,14 @@ const reducer = combineReducers({
   //auction related
   auctionGetOpenings: auctionGetOpeningsReducer,
   auctionGetTopTrending: auctionGetTopTrendingReducer,
+  auctionGetById: auctionGetByIdReducer,
+  bidGetByAuctionId: bidGetByAuctionIdReducer,
 });
 
-const userInfoFromLocalStorage = localStorage.getItem('userInfo')
-  ? JSON.parse(localStorage.getItem('userInfo'))
-  : null;
+const userInfoFromLocalStorage =
+  localStorage.getItem('userInfo') != null
+    ? JSON.parse(localStorage.getItem('userInfo'))
+    : null;
 
 const initialState = {
   userLogin: { userInfo: userInfoFromLocalStorage },

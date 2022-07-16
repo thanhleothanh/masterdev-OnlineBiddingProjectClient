@@ -24,6 +24,7 @@ function App() {
 
         {/* <Route path='/404' component={NotFound} />
         <Redirect to='/404' /> */}
+
         <AdminNavigationBar />
         <Route path='/resolve' component={Resolve} />
         <Redirect to='/resolve' />

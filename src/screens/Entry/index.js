@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { login } from '../../redux/actions/userActions';
 import * as Components from '../../components/Components';
+import Alert from '../../components/Alert';
 
 const Entry = ({ history }) => {
   const [signIn, setSignIn] = React.useState(true);
