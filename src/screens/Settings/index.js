@@ -1,10 +1,12 @@
 import React from 'react';
 import './styles.css';
 
-export const Settings = (props) => {
+const Settings = (props) => {
     return (
         <div>
             <p>Settings</p>
         </div>
     );
 };
+
+export default Settings;

@@ -1,10 +1,12 @@
 import React from 'react';
 import './styles.css';
 
-export const Items = (props) => {
+const Auctions = (props) => {
     return (
         <div>
-            <p>Items</p>
+            <p>Auctions</p>
         </div>
     );
 };
+
+export default Auctions;
