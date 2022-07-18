@@ -1,13 +1,13 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { userLoginReducer, userSignupReducer } from './redux/reducers/userReducers';
+import { userLoginReducer, userSignupReducer } from './reducers/userReducers';
 import {
   auctionGetOpeningsReducer,
   auctionGetTopTrendingReducer,
   auctionGetByIdReducer,
   bidGetByAuctionIdReducer,
-} from './redux/reducers/auctionReducers';
+} from './reducers/auctionReducers';
 
 const reducer = combineReducers({
   //user related

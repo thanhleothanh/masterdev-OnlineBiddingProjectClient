@@ -63,7 +63,7 @@ const DropdownMenu = () => {
               Profile <i className='fas fa-smile'></i>
             </div>
           </Link>
-          {userInfo.role === 'ADMIN' && (
+          {userInfo && userInfo.role === 'ADMIN' && (
             <Link to='/admin'>
               <div className='font-bold text-right rounded-none genericButton'>
                 For Admin <i className='fas fa-chalkboard-teacher'></i>
@@ -76,6 +76,81 @@ const DropdownMenu = () => {
           >
             Log Out <i className='fas fa-sign-out-alt' />
           </button>
+        </div>
+      </div>
+    </span>
+  );
+};
+
+const TYPE = {
+  0: 'Form',
+  1: 'Report',
+}
+
+export const ResolveType = () => {
+  const [show, setShow] = useState(false);
+  const [type, setType] = useState(TYPE[0]);
+  const container = useRef(null);
+  const { userInfo } = useSelector((state) => state.userLogin);
+  const dispatch = useDispatch();
+
+  function typeHandle(e, i) {
+    setType(TYPE[i]);
+  }
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (
+        container &&
+        container.current &&
+        !container.current.contains(event.target)
+      ) {
+        if (!show) return;
+        setShow(false);
+      }
+    };
+    window.addEventListener('click', handleOutsideClick);
+    return () => window.removeEventListener('click', handleOutsideClick);
+  }, [show, container]);
+
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (!show) return;
+      if (event.key === 'Escape') {
+        setShow(false);
+      }
+    };
+    document.addEventListener('keyup', handleEscape);
+    return () => document.removeEventListener('keyup', handleEscape);
+  }, [show]);
+
+
+  return (
+    <span ref={container}>
+      <button
+        className='font-bold genericButton bg-orange-500 hover:bg-orange-600 focus:bg-orange-600 text-white'
+        onClick={() => setShow(!show)}
+      >
+        {type + ' '}
+        <i className="fa-solid fa-angle-down"></i>
+      </button>
+
+      <div
+        style={{
+          visibility: `${show ? 'visible' : 'hidden'}`,
+          opacity: `${show ? '100%' : '0%'}`,
+        }}
+      >
+        <div className='absolute z-10 flex flex-col mt-1 border-2 border-orange-500 rounded-md shadow-md w-44 overflow-hiddenbg-white'>
+          {Object.keys(TYPE).map((e, i) => {
+            return (
+              <button key={'ddm' + i}
+                className='w-full font-bold text-left rounded-none genericButton'
+                onClick={(event) => typeHandle(event, i)}>
+                {TYPE[i]}
+              </button>
+            )
+          })}
         </div>
       </div>
     </span>

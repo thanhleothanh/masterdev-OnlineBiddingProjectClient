@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import AdminAuctionCard from '../../../components/AdminAuctionCard';
+import DropdownMenu, { ResolveType } from '../../../components/DropdownMenu';
 import Header from '../../../components/Header';
 
 const Resolve = ({ history }) => {
@@ -10,12 +12,7 @@ const Resolve = ({ history }) => {
       {/* header section */}
       <div className='flex w-full'>
         <div className='w-full h-full space-x-5 xl:w-2/3'>
-          <button className='genericButton'>
-            <i className='fas fa-arrow-left' />
-          </button>
-          <span className='text-xl font-bold text-gray-200'>
-            <i className='fas fa-clock' /> Timer
-          </span>
+          <ResolveType />
         </div>
         <div className='w-full xl:w-1/3'>
           <div className='flex justify-end'>
@@ -24,7 +21,10 @@ const Resolve = ({ history }) => {
         </div>
       </div>
       <div className='flex flex-col w-full h-full mt-5 lg:space-x-10 lg:flex-row'>
-        <div className='flex flex-col w-full h-auto space-y-5 lg:w-1/3'>
+        <AdminAuctionCard />
+        <AdminAuctionCard />
+        <AdminAuctionCard />
+        {/* <div className='flex flex-col w-full h-auto space-y-5 lg:w-1/3'>
           <img className='aspect-square' src='/images/auction_img.jpg' />
           <img className='aspect-square' src='/images/auction_img.jpg' />
         </div>
@@ -46,7 +46,7 @@ const Resolve = ({ history }) => {
               </button>
             </div>
           </form>
-        </div>
+        </div> */}
       </div>
     </div>
   );
