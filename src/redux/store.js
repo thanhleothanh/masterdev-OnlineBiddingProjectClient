@@ -6,8 +6,15 @@ import {
   auctionGetOpeningsReducer,
   auctionGetTopTrendingReducer,
   auctionGetByIdReducer,
-  bidGetByAuctionIdReducer,
+  auctionGetMyAuctionsReducer,
+  auctionPostReducer,
+  auctionDeleteReducer,
+  auctionSubmitReducer,
 } from './reducers/auctionReducers';
+import {
+  bidGetByAuctionIdReducer,
+  bidPostByAuctionIdReducer,
+} from './reducers/bidReducers';
 
 const reducer = combineReducers({
   //user related
@@ -18,7 +25,14 @@ const reducer = combineReducers({
   auctionGetOpenings: auctionGetOpeningsReducer,
   auctionGetTopTrending: auctionGetTopTrendingReducer,
   auctionGetById: auctionGetByIdReducer,
+  auctionGetMyAuctions: auctionGetMyAuctionsReducer,
+  auctionPost: auctionPostReducer,
+  auctionDelete: auctionDeleteReducer,
+  auctionSubmit: auctionSubmitReducer,
+
+  //bid related
   bidGetByAuctionId: bidGetByAuctionIdReducer,
+  bidPostByAuctionId: bidPostByAuctionIdReducer,
 });
 
 const userInfoFromLocalStorage =

@@ -72,7 +72,7 @@ const DropdownMenu = () => {
           )}
           <button
             className='w-full font-bold text-right rounded-t-none genericButton'
-            onClick={logoutHandler}
+            onClick={() => logoutHandler()}
           >
             Log Out <i className='fas fa-sign-out-alt' />
           </button>
@@ -87,15 +87,14 @@ const TYPE = {
   1: 'Report',
 }
 
-export const ResolveType = () => {
+export const ResolveType = (props) => {
   const [show, setShow] = useState(false);
-  const [type, setType] = useState(TYPE[0]);
   const container = useRef(null);
   const { userInfo } = useSelector((state) => state.userLogin);
   const dispatch = useDispatch();
 
   function typeHandle(e, i) {
-    setType(TYPE[i]);
+    props.setResolveType(TYPE[i]);
   }
 
   useEffect(() => {
@@ -131,7 +130,7 @@ export const ResolveType = () => {
         className='font-bold genericButton bg-orange-500 hover:bg-orange-600 focus:bg-orange-600 text-white'
         onClick={() => setShow(!show)}
       >
-        {type + ' '}
+        {props.resolveType + ' '}
         <i className="fa-solid fa-angle-down"></i>
       </button>
 
